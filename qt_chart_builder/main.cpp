@@ -14,13 +14,14 @@ void cbDisplay();
 int main(int argc, char *argv[])
 {
 	std::thread glutThr(glutThrFunc,argc,argv);
+	glutThr.detach();
 	
 	QApplication a(argc, argv);
     qt_chart_builder w;
 	w.cMgrPtr = &cMgr;
     w.show();	
-	
-    return a.exec();
+
+	return a.exec();
 }
 
 void glutThrFunc(int argc, char *argv[])
