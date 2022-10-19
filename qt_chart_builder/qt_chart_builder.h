@@ -24,6 +24,9 @@ public slots:
 	void btnAddClick();
 	void btnRemoveClick();
 	void btnUpdateClick();
+	void btnSortClick();
+	void btnMoveUpClick();
+	void btnMoveDownClick();
 	void tableDataClick(int r, int c);
 	void tableDataChange(int r, int c);
 

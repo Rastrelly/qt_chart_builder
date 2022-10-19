@@ -10,6 +10,9 @@ qt_chart_builder::qt_chart_builder(QWidget *parent)
 	connect(ui.btnAdd, &QPushButton::clicked, this, &qt_chart_builder::btnAddClick);
 	connect(ui.btnRemove, &QPushButton::clicked, this, &qt_chart_builder::btnRemoveClick);
 	connect(ui.btnUpdate, &QPushButton::clicked, this, &qt_chart_builder::btnUpdateClick);
+	connect(ui.btnSort, &QPushButton::clicked, this, &qt_chart_builder::btnSortClick);
+	connect(ui.btnMoveUp, &QPushButton::clicked, this, &qt_chart_builder::btnMoveUpClick);
+	connect(ui.btnMoveDown, &QPushButton::clicked, this, &qt_chart_builder::btnMoveDownClick);
 	connect(ui.tableData, &QTableWidget::cellClicked, this, &qt_chart_builder::tableDataClick);
 	connect(ui.tableData, &QTableWidget::cellChanged, this, &qt_chart_builder::tableDataChange);
 }
@@ -38,6 +41,23 @@ void qt_chart_builder::btnUpdateClick()
 	px = ui.editX->text().toFloat();
 	py = ui.editY->text().toFloat();
 	cMgrPtr->setPoint(cMgrPtr->getSelPoint() , { px,py });
+	refreshTable();
+}
+
+void qt_chart_builder::btnSortClick()
+{
+	cMgrPtr->sortByX();
+	refreshTable();
+}
+
+void qt_chart_builder::btnMoveUpClick()
+{
+	cMgrPtr->move(-1);
+	refreshTable();
+}
+void qt_chart_builder::btnMoveDownClick()
+{
+	cMgrPtr->move(1);
 	refreshTable();
 }
 

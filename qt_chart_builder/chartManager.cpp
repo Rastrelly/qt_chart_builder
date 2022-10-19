@@ -44,3 +44,44 @@ void chartManager::calcExtremes()
 		}
 	}
 }
+
+void chartManager::sortByX()
+{
+	//using selection sorting
+	int l = getChartSize();
+	if (l > 1)
+	{
+
+		for (int i = 0; i < l - 1; i++)
+		{
+			int min_index = i;
+			for (int j = i + 1; j < l; j++)
+			{
+				if (chartPoints[j].x < chartPoints[min_index].x)
+				{
+					min_index = j;
+				}
+			}
+			if (min_index != i)
+			{
+				dataPoint buf = chartPoints[i];
+				chartPoints[i] = chartPoints[min_index];
+				chartPoints[min_index] = buf;
+			}
+		}
+
+	}
+}
+
+void chartManager::move(int dir)
+{
+	int l = getChartSize();
+	int i = getSelPoint();
+
+	if (((i + dir) >= 0) && ((i + dir) <= (l - 1)))
+	{
+		dataPoint buf = chartPoints[i];
+		chartPoints[i] = chartPoints[i + dir];
+		chartPoints[i + dir] = buf;
+	}
+}

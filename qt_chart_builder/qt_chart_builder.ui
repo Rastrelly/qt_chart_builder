@@ -93,6 +93,45 @@
           <string>Update</string>
          </property>
         </widget>
+        <widget class="QPushButton" name="btnMoveUp">
+         <property name="geometry">
+          <rect>
+           <x>100</x>
+           <y>60</y>
+           <width>75</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Move Up</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btnMoveDown">
+         <property name="geometry">
+          <rect>
+           <x>100</x>
+           <y>90</y>
+           <width>75</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Move Down</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btnSort">
+         <property name="geometry">
+          <rect>
+           <x>220</x>
+           <y>90</y>
+           <width>75</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Sort by X</string>
+         </property>
+        </widget>
        </widget>
       </item>
      </layout>
